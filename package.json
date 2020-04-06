@@ -1,0 +1,71 @@
+{
+	"name": "rex-visualizer",
+	"description": "A simple .rex file viewer",
+	"version": "0.0.1",
+	"publisher": "jquistiano",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:tts"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/javiqv/rex-visualizer.git"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "XSLT Configuration",
+			"properties": {
+				"xslt.processor": {
+					"type": "string",
+					"default": "",
+					"description": "Define the path to the xslt processor"
+				},
+				"xslt.stylesheet": {
+					"type": "string",
+					"default": "",
+					"description": "Define the path to the xsl stylesheet"
+				}
+			}
+		},
+		"languages": [
+			{
+				"id": "tts",
+				"extensions": [
+					".rex",
+					".play",
+					".log"
+				],
+				"aliases": [
+					"tts",
+					"TTS"
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "tslint -p ./",
+		"watch": "tsc -w -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.2.0"
+	}
+}
